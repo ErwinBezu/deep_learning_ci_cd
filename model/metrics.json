@@ -1,0 +1,30 @@
+{
+    "modele": "Reseau de neurones optimise Optuna",
+    "graine": 42,
+    "epochs": 56,
+    "hyperparametres": {
+        "nb_couches": 3,
+        "nb_neurones": 16,
+        "dropout": 0.3,
+        "regularisation": 0.0001,
+        "learning_rate": 0.0001
+    },
+    "vectorisation": {
+        "methode": "TF-IDF",
+        "max_features": 5000,
+        "vocabulaire": 5000
+    },
+    "donnees": {
+        "apprentissage": 1407,
+        "test": 469,
+        "production": 470
+    },
+    "metriques": {
+        "f1_validation_naive_bayes": 0.8618271784537324,
+        "f1_validation_reseau_initial": 0.8434147713279764,
+        "f1_validation_reseau_optimise": 0.8532277714498994,
+        "f1_test_final": 0.8425357873210634,
+        "marge_bruit_test": 0.032965127626317835
+    },
+    "seuil_classification": 0.5
+}
