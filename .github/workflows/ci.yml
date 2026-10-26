@@ -1,0 +1,70 @@
+name: CI - Tests et image Docker
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    name: Tests et barriere qualite
+    runs-on: ubuntu-latest
+    steps:
+      - name: Recuperer le code
+        uses: actions/checkout@v4
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: pip
+
+      - name: Installer les dependances
+        run: python -m pip install -r requirements.txt
+
+      - name: Verifier la qualite du modele
+        run: python quality_gate.py
+
+      - name: Lancer les tests
+        env:
+          PYTHONPATH: .
+        run: python -m pytest -v
+
+  image:
+    name: Construire et tester Docker
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Recuperer le code
+        uses: actions/checkout@v4
+
+      - name: Construire l'image
+        run: docker build -t films-api:ci .
+
+      - name: Demarrer le conteneur
+        run: docker run -d --name films-api-ci -p 8000:8000 films-api:ci
+
+      - name: Verifier le demarrage de l'API
+        shell: bash
+        run: |
+          for i in {1..60}; do
+            if curl --fail --silent http://localhost:8000/health > health.json; then
+              python -c 'import json; d=json.load(open("health.json")); assert d["status"] == "ok"; assert d["version"]'
+              cat health.json
+              exit 0
+            fi
+            if [ "$(docker inspect -f '{{.State.Running}}' films-api-ci)" != "true" ]; then
+              docker logs films-api-ci
+              exit 1
+            fi
+            sleep 5
+          done
+          docker logs films-api-ci
+          exit 1
+
+      - name: Afficher les logs si echec
+        if: failure()
+        run: docker logs films-api-ci || true
+
+      - name: Arreter le conteneur
+        if: always()
+        run: docker rm -f films-api-ci || true

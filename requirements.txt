@@ -6,3 +6,10 @@ tensorboard
 keras-tuner
 optuna
 joblib
+fastapi
+uvicorn
+pydantic
+langdetect
+pytest
+httpx
+pyyaml

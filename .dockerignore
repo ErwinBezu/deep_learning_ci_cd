@@ -1,0 +1,44 @@
+# Environnement virtuel Python
+.venv/
+venv/
+
+# Git
+.git/
+.github/
+.gitignore
+
+# Cache Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Notebooks Jupyter
+notebooks/
+*.ipynb
+.ipynb_checkpoints/
+
+# Données d'entraînement
+data/
+*.csv
+
+# Tests
+tests/
+pytest.ini
+
+# Fichiers temporaires
+*.log
+*.tmp
+
+# Informations sensibles
+.env
+.env.*
+
+# Fichiers inutiles à l'API
+README.md
+PLAN.md
+PROCEDURE_MISE_EN_PRODUCTION.md
+FIN_de_VIE.md
+config.yaml
+quality_gate.py
+
+screen/
