@@ -128,7 +128,7 @@ def afficher_video():
     </html>
     """
 
-    @app.get("/hello")
+@app.get("/hello")
 def hello():
     return {
         "message": "Hello World !",
