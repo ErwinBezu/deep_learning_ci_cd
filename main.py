@@ -6,6 +6,7 @@ import joblib
 from langdetect import detect, DetectorFactory, LangDetectException
 
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
 from tensorflow import keras
 
@@ -52,7 +53,7 @@ def predict(donnees: TexteEntree):
     if len(texte) < 64:
         raise HTTPException(
             status_code=400,
-            detail="Le texte doit contenir au moins 10 caractères."
+            detail="Le texte doit contenir au moins 64 caractères."
         )
 
     try:
@@ -84,4 +85,54 @@ def predict(donnees: TexteEntree):
         "categorie": categorie,
         "probabilite": probabilite if classe == 1 else 1 - probabilite,
         "version": app.state.version
+    }
+
+@app.get("/stephan", response_class=HTMLResponse)
+def afficher_video():
+    return """
+    <!DOCTYPE html>
+    <html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ma vidéo YouTube</title>
+        <style>
+            body {
+                background-color: #121212;
+                color: white;
+                font-family: Arial, sans-serif;
+                text-align: center;
+                padding: 40px;
+            }
+
+            iframe {
+                width: 360px;
+                max-width: 100%;
+                height: 640px;
+                border: none;
+                border-radius: 12px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Bienvenue sur mon API !</h1>
+        <p>Une petite vidéo pour célébrer mon déploiement Azure !</p>
+
+        <iframe
+            src="https://www.youtube.com/embed/FTg_FLt0F9A"
+            title="Ma vidéo YouTube Shorts"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+        </iframe>
+    </body>
+    </html>
+    """
+
+    @app.get("/hello")
+def hello():
+    return {
+        "message": "Hello World !",
+        "application": "API de classification de films",
+        "version": "2.0.0",
+        "environnement": "Azure Container Apps"
     }
