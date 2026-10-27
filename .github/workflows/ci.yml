@@ -68,3 +68,26 @@ jobs:
       - name: Arreter le conteneur
         if: always()
         run: docker rm -f films-api-ci || true
+        
+  publier:
+    name: Publier sur Azure ACR
+    runs-on: ubuntu-latest
+    needs: image
+
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v4
+
+      - name: Connexion au registre Azure
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ secrets.ACR_LOGIN_SERVER }}
+          username: ${{ secrets.ACR_USERNAME }}
+          password: ${{ secrets.ACR_PASSWORD }}
+
+      - name: Construire et publier l'image
+        run: |
+          docker build \
+            -t ${{ secrets.ACR_LOGIN_SERVER }}/films-api:${{ github.sha }} .
+          docker push \
+            ${{ secrets.ACR_LOGIN_SERVER }}/films-api:${{ github.sha }}
