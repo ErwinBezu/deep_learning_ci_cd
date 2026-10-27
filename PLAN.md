@@ -15,34 +15,34 @@
 
 ## 3. Tableau de planification
 
-Les durées sont des **estimations initiales**. Renseigner la charge réelle au fil du projet ; ne pas la préremplir. Les numéros T servent à repérer les dépendances.
+Les durées sont des **estimations initiales**. La colonne « Charge réelle » contient ici des **repères horodatés reconstitués à partir des échanges**, et non des durées chronométrées : les messages ne permettent pas de mesurer les interruptions ou le travail hors conversation. Les numéros T servent à repérer les dépendances.
 
-| ID | Tâche | Dépend de | Charge estimée | Charge réelle | Ressources (H / M / T / F) | Date prévue |
+| ID | Tâche | Dépend de | Charge estimée | Suivi reconstitué (horodatages) | Ressources (H / M / T / F) | Date prévue |
 |---|---|---|---:|---|---|---|
-| T01 | C12 : préparer PLAN, procédure et plan de fin de vie (versions initiales) | — | 1 h 30 | À renseigner | Apprenant / PC / Markdown, VS Code / 0 € hors équipement | J1 |
-| T02 | Préparer dépôt, venv, notebook et dépendances | T01 | 0 h 30 | À renseigner | Apprenant / PC / Python, Git, Jupyter / 0 € | J1 |
-| T03 | Audit, nettoyage et dédoublonnage des données | T02 | 1 h | À renseigner | Apprenant / PC / pandas / 0 € | J1 |
-| T04 | Découpage stratifié 60 % / 20 % / 20 % | T03 | 0 h 45 | À renseigner | Apprenant / PC / scikit-learn / 0 € | J1 |
-| T05 | TF-IDF appris sur l'entraînement uniquement | T04 | 0 h 45 | À renseigner | Apprenant / PC / scikit-learn / 0 € | J1 |
-| T06 | Baselines : logistique, Bayes naïf, réseau simple, 5 graines et marge de bruit | T05 | 2 h 30 | À renseigner | Apprenant / PC / scikit-learn, Keras / 0 € | J1–J2 |
-| T07 | KerasTuner : fonction de construction, 20 essais | T06 | 2 h 30 | À renseigner | Apprenant / PC / KerasTuner, TensorFlow / 0 € | J2 |
-| T08 | Optuna : mêmes paramètres et 20 essais ; comparaison | T07 | 2 h | À renseigner | Apprenant / PC / Optuna / 0 € | J2 |
-| T09 | Verdict : 5 graines, comparaison, test final unique | T08 | 1 h 30 | À renseigner | Apprenant / PC / Keras, scikit-learn / 0 € | J2–J3 |
-| T10 | Sauvegarder modèle, TF-IDF, metrics.json et échantillon de référence | T09 | 1 h | À renseigner | Apprenant / PC / Keras, joblib, JSON / 0 € | J3 |
-| T11 | FastAPI : /health et /predict, validation et essais manuels | T10 | 2 h | À renseigner | Apprenant / PC / FastAPI, uvicorn / 0 € | J3 |
-| T12 | Tests automatiques de l'API et du score minimum | T11 | 1 h | À renseigner | Apprenant / PC / pytest, TestClient / 0 € | J3 |
-| T13 | Barrière qualité : config.yaml, script, acceptation et rejet simulé | T10, T12 | 1 h | À renseigner | Apprenant / PC / Python, YAML / 0 € | J3 |
-| T14 | Dockerfile et .dockerignore ; construction, taille et essais du conteneur | T11–T13 | 2 h | À renseigner | Apprenant / PC / Docker / 0 € local | J3–J4 |
-| T15 | GitHub Actions : jobs test et image, vérification verte | T14 | 1 h 30 | À renseigner | Apprenant / PC / GitHub Actions / Selon quotas GitHub | J4 |
-| T16 | Démontrer l'échec du seuil impossible puis rétablir le vert | T15 | 0 h 30 | À renseigner | Apprenant / PC / GitHub Actions / Selon quotas | J4 |
-| T17 | Créer Azure Container Registry Basic et secrets GitHub | T16 | 1 h | À renseigner | Apprenant / PC / Azure, GitHub / Azure facturable | J4 |
-| T18 | Ajouter le job publier ; pousser l'image étiquetée par commit | T17 | 1 h | À renseigner | Apprenant / PC / GitHub Actions, ACR / Azure facturable | J4 |
-| T19 | Déployer manuellement Azure Container Apps et tester l'adresse publique | T18 | 1 h 30 | À renseigner | Apprenant / PC / Azure Container Apps / Azure facturable | J5 |
-| T20 | Ajouter /hello, publier une nouvelle image et redéployer | T19 | 1 h | À renseigner | Apprenant / PC / FastAPI, GitHub, Azure / Azure facturable | J5 |
-| T21 | Retour arrière vers le commit précédent ; preuves | T20 | 0 h 45 | À renseigner | Apprenant / PC / Azure, Git / Azure facturable | J5 |
-| T22 | Fin de vie : relever coûts, supprimer application, environnement et registre ; preuves | T21 | 1 h | À renseigner | Apprenant / PC / Portail Azure / Facturation jusqu'à suppression | J5 |
-| T23 | Finaliser C12, README, journal des versions, bilan prévu/réel et fiche finale | T22 | 1 h 45 | À renseigner | Apprenant / PC / Markdown, Git / 0 € hors équipement | J5 |
-| | **TOTAL** | | **32 h 15** | **À renseigner** | | **J1–J5** |
+| T01 | C12 : préparer PLAN, procédure et plan de fin de vie (versions initiales) | — | 1 h 30 | 22/10, 09 h 05 — documents C12 préparés | Apprenant / PC / Markdown, VS Code / 0 € hors équipement | J1 |
+| T02 | Préparer dépôt, venv, notebook et dépendances | T01 | 0 h 30 | 22/10, avant 12 h 46 — environnement prêt pour le notebook (heure exacte inconnue) | Apprenant / PC / Python, Git, Jupyter / 0 € | J1 |
+| T03 | Audit, nettoyage et dédoublonnage des données | T02 | 1 h | 22/10, 12 h 46 — audit des données en cours | Apprenant / PC / pandas / 0 € | J1 |
+| T04 | Découpage stratifié 60 % / 20 % / 20 % | T03 | 0 h 45 | 22/10, 13 h 17 — étape du découpage abordée | Apprenant / PC / scikit-learn / 0 € | J1 |
+| T05 | TF-IDF appris sur l'entraînement uniquement | T04 | 0 h 45 | 22–26/10 — TF-IDF réalisé, plage non isolable | Apprenant / PC / scikit-learn / 0 € | J1 |
+| T06 | Baselines : logistique, Bayes naïf, réseau simple, 5 graines et marge de bruit | T05 | 2 h 30 | 22–26/10 — baselines réalisées, plage non isolable | Apprenant / PC / scikit-learn, Keras / 0 € | J1–J2 |
+| T07 | KerasTuner : fonction de construction, 20 essais | T06 | 2 h 30 | 22–26/10 — optimisation KerasTuner, plage non isolable | Apprenant / PC / KerasTuner, TensorFlow / 0 € | J2 |
+| T08 | Optuna : mêmes paramètres et 20 essais ; comparaison | T07 | 2 h | 22–26/10 — optimisation Optuna, plage non isolable | Apprenant / PC / Optuna / 0 € | J2 |
+| T09 | Verdict : 5 graines, comparaison, test final unique | T08 | 1 h 30 | 22–26/10 — verdict final, plage non isolable | Apprenant / PC / Keras, scikit-learn / 0 € | J2–J3 |
+| T10 | Sauvegarder modèle, TF-IDF, metrics.json et échantillon de référence | T09 | 1 h | Au plus tard le 26/10 — artefacts du modèle disponibles | Apprenant / PC / Keras, joblib, JSON / 0 € | J3 |
+| T11 | FastAPI : /health et /predict, validation et essais manuels | T10 | 2 h | 26/10, dès 09 h 41 — travail sur FastAPI | Apprenant / PC / FastAPI, uvicorn / 0 € | J3 |
+| T12 | Tests automatiques de l'API et du score minimum | T11 | 1 h | 26/10, 12 h 23 — 4 tests pytest réussis | Apprenant / PC / pytest, TestClient / 0 € | J3 |
+| T13 | Barrière qualité : config.yaml, script, acceptation et rejet simulé | T10, T12 | 1 h | 26/10 — barrière qualité mise en place, heure non isolable | Apprenant / PC / Python, YAML / 0 € | J3 |
+| T14 | Dockerfile et .dockerignore ; construction, taille et essais du conteneur | T11–T13 | 2 h | 26/10, 14 h 54 — conteneur Docker lancé | Apprenant / PC / Docker / 0 € local | J3–J4 |
+| T15 | GitHub Actions : jobs test et image, vérification verte | T14 | 1 h 30 | 26/10, dès 15 h 13 — GitHub Actions abordé | Apprenant / PC / GitHub Actions / Selon quotas GitHub | J4 |
+| T16 | Démontrer l'échec du seuil impossible puis rétablir le vert | T15 | 0 h 30 | 26–27/10 — contrôle du seuil, heure non isolable | Apprenant / PC / GitHub Actions / Selon quotas | J4 |
+| T17 | Créer Azure Container Registry Basic et secrets GitHub | T16 | 1 h | 27/10, dès 09 h 09 — travaux Azure et ACR | Apprenant / PC / Azure, GitHub / Azure facturable | J4 |
+| T18 | Ajouter le job publier ; pousser l'image étiquetée par commit | T17 | 1 h | 27/10 — publication vers ACR, heure non isolable | Apprenant / PC / GitHub Actions, ACR / Azure facturable | J4 |
+| T19 | Déployer manuellement Azure Container Apps et tester l'adresse publique | T18 | 1 h 30 | 27/10 — déploiement Azure Container Apps | Apprenant / PC / Azure Container Apps / Azure facturable | J5 |
+| T20 | Ajouter /hello, publier une nouvelle image et redéployer | T19 | 1 h | 27/10 — nouvelle version /hello déployée | Apprenant / PC / FastAPI, GitHub, Azure / Azure facturable | J5 |
+| T21 | Retour arrière vers le commit précédent ; preuves | T20 | 0 h 45 | 27/10 — retour arrière testé | Apprenant / PC / Azure, Git / Azure facturable | J5 |
+| T22 | Fin de vie : relever coûts, supprimer application, environnement et registre ; preuves | T21 | 1 h | 27/10, 16 h 17 — suppression du groupe annoncée ; coût non visible | Apprenant / PC / Portail Azure / Facturation jusqu'à suppression | J5 |
+| T23 | Finaliser C12, README, journal des versions, bilan prévu/réel et fiche finale | T22 | 1 h 45 | 27/10, à partir de 16 h 14 — mise à jour des documents C12 | Apprenant / PC / Markdown, Git / 0 € hors équipement | J5 |
+| | **TOTAL** | | **32 h 15** | **Durée totale réelle non mesurable** | | **J1–J5** |
 
 **Marge de sécurité : 2 h 45** sur les 35 h disponibles. À utiliser en priorité pour les essais KerasTuner/Optuna, les erreurs Docker ou les permissions Azure. Si une tâche dépasse son estimation, noter l'écart au lieu de modifier rétroactivement l'estimation initiale.
 

@@ -51,21 +51,24 @@ Ce plan décrit **quand**, **comment** et **dans quel ordre** retirer les compos
 
 | Contrôle | Résultat / preuve | Date |
 |---|---|---|
-| Dernier état et SHA du déploiement consignés | À compléter | À compléter |
-| Coût Azure estimé relevé | À compléter | À compléter |
-| Coût réel Azure relevé (si disponible) | À compléter | À compléter |
-| Container App supprimée | À compléter (capture) | À compléter |
-| Environnement Container Apps supprimé | À compléter (capture) | À compléter |
-| Registre ACR supprimé | À compléter (capture) | À compléter |
-| Secrets GitHub supprimés / identifiants révoqués | À compléter | À compléter |
-| Images locales et données temporaires nettoyées | À compléter | À compléter |
-| Dépôt et livrables conservés pour l'évaluation | À compléter | À compléter |
+| Dernier état et SHA du déploiement consignés | Image antérieure identifiée : `40515fa` ; confirmer le SHA effectivement redéployé | 27/10/2026 |
+| Coût Azure estimé relevé | Non encore chiffré : estimation à établir à partir du tarif ACR Basic, de la durée de conservation et de la consommation Container Apps | 27/10/2026 |
+| Coût réel Azure relevé (si disponible) | Non visible depuis le compte de formation ; accès aux données de facturation à confirmer | 27/10/2026 (constat déclaré) |
+| Container App supprimée | Non confirmé — capture Azure après suppression requise (`erwinfilmapi`) | 27/10/2026|
+| Environnement Container Apps supprimé | Non confirmé — vérifier qu’il n’est pas partagé, puis joindre une capture | 27/10/2026 |
+| Registre ACR supprimé | Non confirmé — capture après suppression requise | À renseigner |
+| Images locales et données temporaires nettoyées | Non confirmé — vérifier Docker et conserver les artefacts nécessaires au rendu | 26/10/2026 |
+| Dépôt et livrables conservés pour l'évaluation |  | 27/10/2026 |
 
 ## 6. Bilan de fin de projet
 
-- **Fin de vie partielle réalisée :** à compléter (version remplacée, rollback testé, résultat).
-- **Fin de vie totale réalisée :** à compléter (date, ressources supprimées, preuves).
-- **Coût estimé / coût réel :** à compléter ; ne pas confondre estimation et montant facturé.
-- **Écarts avec le plan et améliorations :** à compléter dans la fiche finale C12.
+- **Fin de vie partielle réalisée** : déploiement d'une nouvelle version de l'API, puis démonstration d'un retour arrière vers une version antérieure fonctionnelle.
 
-> Ce document décrit un plan. Les suppressions et vérifications ne seront considérées comme effectuées qu'une fois réalisées et justifiées par des preuves.
+- **Fin de vie totale réalisée** : suppression du groupe de ressources Azure contenant l'application Container Apps, son environnement et le registre ACR. Cette opération a entraîné la suppression des ressources associées.
+
+- **Coût estimé / coût réel** : coût réel non accessible depuis le compte Azure de formation. Estimation théorique à compléter.
+
+- **Preuves** : capture de l'absence du groupe de ressources dans le portail Azure et, si disponible, confirmation de la suppression.
+
+- **Écarts avec le plan** : suppression du groupe de ressources directement, plutôt que suppression individuelle des trois ressources prévues dans la procédure initiale.
+

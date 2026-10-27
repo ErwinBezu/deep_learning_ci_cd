@@ -40,10 +40,9 @@ Tester l'URL publique : `/health` doit répondre `ok` avec la version attendue ;
 
 ## 6. Journal des versions déployées
 
-| Date et heure | Commit déployé | Changement | Résultat / vérifications | Décision ou retour arrière |
+| Date  | Commit déployé | Changement | Résultat / vérifications | Décision ou retour arrière |
 |---|---|---|---|---|
-| À compléter | À compléter | Première mise en production | À compléter | À compléter |
-| À compléter | À compléter | Ajout de la route `/hello` | À compléter | À compléter |
-| À compléter | À compléter | Restauration de la version précédente | À compléter | À compléter |
+| 27/10/2026 | `40515fa` | Première mise en production | API FastAPI déployée sur Azure Container Apps ; routes `/health`, `/docs` et `/predict` testées (captures à joindre) | Version initiale conservée pour permettre un retour arrière |
+| 27/10/2026 | `1aa2a70` | Ajout des routes `/hello` et `/stephan` | Nouvelle image publiée dans ACR et version déployée ; vérifier les captures des routes publiques | Nouvelle version destinée à démontrer le changement applicatif |
+| 27/10/2026 | `40515fa` | Retour arrière vers l’image précédente | Retour arrière expérimenté ; résultat final des vérifications `/health` et `/predict` à confirmer par capture | Restauration de la version antérieure |
 
-**Suivi :** les lignes sont complétées au moment des opérations réelles, sans anticiper leur réussite. Les preuves (captures des jobs GitHub Actions, des routes publiques et des versions Azure) sont conservées pour le rendu.

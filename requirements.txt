@@ -13,3 +13,5 @@ langdetect
 pytest
 httpx
 pyyaml
+pandas
+evidently
