@@ -68,11 +68,12 @@ jobs:
       - name: Arreter le conteneur
         if: always()
         run: docker rm -f films-api-ci || true
-        
+
   publier:
     name: Publier sur Azure ACR
     runs-on: ubuntu-latest
     needs: image
+    environment: Azure_registry
 
     steps:
       - name: Récupérer le code
